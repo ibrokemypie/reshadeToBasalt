@@ -14,13 +14,21 @@ A simple tool to convert Reshade presets into vkBasalt configurations.
 
 ## Usage
 
-``reshadeToBasalt <pathToReshadePreset.ini>``
+``reshadeToBasalt -i <pathToReshadePreset.ini>``
 
 This will attempt to generate a vkBasalt configuration based on the provided Reshade preset.
 
 If this succeeds it should print the environment variables required to use it.
 
 The generated vkBasalt configuration is not portable.
+
+If output is not provided, it will output to a folder above the folder the preset ini is in, called ``<presetName>_vkBasalt``
+
+## Flags
+
+``-i    --input=    Path to the Reshade preset ini``
+
+``-o    --output=   Path to output the vkBasalt configuration to    [optional]``
 
 ### Additionally
 
