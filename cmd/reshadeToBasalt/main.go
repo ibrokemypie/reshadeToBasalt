@@ -85,8 +85,8 @@ func main() {
 	// remove the reshade shaders repo in tmp
 	os.RemoveAll("/tmp/reshade-shaders")
 	// add the include and texture paths for vkbasalt
-	basaltPresetConfig.Section("").Key("reshadeIncludePath").SetValue(basaltPresetPath + "/Shaders")
-	basaltPresetConfig.Section("").Key("reshadeTexturePath").SetValue(basaltPresetPath + "/Textures")
+	basaltPresetConfig.Section("").Key("reshadeIncludePath").SetValue("\"" + basaltPresetPath + "/Shaders\"")
+	basaltPresetConfig.Section("").Key("reshadeTexturePath").SetValue("\"" + basaltPresetPath + "/Textures\"")
 
 	// copy the preset's shaders and textures to the vkbasalt dir
 	err = filepath.WalkDir(reshadePresetPath, func(path string, di fs.DirEntry, err error) error {
@@ -126,7 +126,7 @@ func main() {
 					technique = "fakehdr"
 				}
 				if shader == technique {
-					newShader := basaltShader{name: shader, path: path}
+					newShader := basaltShader{name: shader, path: "\"" + path + "\""}
 					basaltPresetEffects = append(basaltPresetEffects, newShader)
 					return nil
 				}
@@ -163,7 +163,7 @@ func main() {
 						basaltPresetConfig.Section("").Key(shader.name + key).SetValue(value)
 					}
 					if shader.name == "lut" {
-						basaltPresetConfig.Section("").Key(shader.name + "File").SetValue(basaltPresetPath + "/Textures/lut.png")
+						basaltPresetConfig.Section("").Key(shader.name + "File").SetValue("\"" + basaltPresetPath + "/Textures/lut.png\"")
 					}
 				}
 			}
