@@ -112,9 +112,6 @@ func main() {
 			if filepath.Ext(path) == ".fx" {
 				shader := strings.ToLower(strings.TrimSuffix(filepath.Base(path), filepath.Ext(path)))
 				for _, technique := range reshadePresetTechniques {
-					if technique == "contrastadaptivesharpen" {
-						technique = "cas"
-					}
 					switch technique {
 					case "contrastadaptivesharpen":
 						technique = "cas"
