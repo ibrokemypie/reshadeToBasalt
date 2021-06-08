@@ -5,6 +5,7 @@ A simple tool to convert Reshade presets into vkBasalt configurations.
 ## Prerequisites
 
 ``go>=1.12``
+
 ``git``
 
 ## Installation
