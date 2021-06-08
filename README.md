@@ -10,7 +10,9 @@ A simple tool to convert Reshade presets into vkBasalt configurations.
 
 ## Installation
 
-``GO111MODULE=on go get -u github.com/ibrokemypie/reshadeToBasalt/cmd/reshadeToBasalt``
+Clone this repo then run ``go install cmd/reshadeToBasalt`` inside it.
+
+To update simply pull then run the command again.
 
 ## Usage
 
